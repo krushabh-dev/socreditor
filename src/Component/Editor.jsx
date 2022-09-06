@@ -23,7 +23,7 @@ const toolbarOptions = [
 
 function Editor() {
     const [socket, setSocket] = useState();
-    const [quill, setQuill] = useState();
+    const [quill, setQuill] = useState(); 
 
     useEffect(() => {
         var quillServer = new Quill('#editors', {
@@ -31,11 +31,13 @@ function Editor() {
                 toolbar: toolbarOptions
               },
           });
+
+        setQuill(quillServer);
     }, [])
 
     useEffect(() => {
       const socketServer = io("http://localhost:9000/")
-
+      setSocket(socketServer);
       return () => {
         socketServer.disconnect();
       }
