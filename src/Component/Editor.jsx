@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import { Box } from "@mui/material";
 import Quill from "quill";
+import { io } from "socket.io-client";
 import 'quill/dist/quill.snow.css'
 
 const toolbarOptions = [
