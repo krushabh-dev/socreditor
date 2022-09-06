@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { Box } from "@mui/material";
 import Quill from "quill";
 import { io } from "socket.io-client";
@@ -22,6 +22,8 @@ const toolbarOptions = [
   
 
 function Editor() {
+    const [socket, setSocket] = useState();
+    const [quill, setQuill] = useState();
 
     useEffect(() => {
         var quillServer = new Quill('#editors', {
@@ -32,7 +34,11 @@ function Editor() {
     }, [])
 
     useEffect(() => {
-      const socket = io("http://localhost:9000/")
+      const socketServer = io("http://localhost:9000/")
+
+      return () => {
+        socketServer.disconnect();
+      }
     })
     
   return (
