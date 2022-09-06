@@ -30,6 +30,10 @@ function Editor() {
               },
           });
     }, [])
+
+    useEffect(() => {
+      const socket = io("http://localhost:9000/")
+    })
     
   return (
     <>
