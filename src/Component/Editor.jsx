@@ -42,6 +42,12 @@ function Editor() {
         socketServer.disconnect();
       }
     })
+
+    useEffect(() => {
+      quill.on('text-change', (delta, oldData, source) => {
+
+      })
+    })
     
   return (
     <>
