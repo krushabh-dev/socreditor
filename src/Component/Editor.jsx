@@ -45,16 +45,16 @@ function Editor() {
 
     useEffect(() => {
 
-      const handleChange = (delta, oldData, source) => {
-        if(source !== 'user') return;
-        socket.emit('send-changes', delta);
-      }
+      // const handleChange = (delta, oldData, source) => {
+      //   if(source !== 'user') return;
+      //   socket.emit('send-changes', delta);
+      // }
 
-      quill.on('text-change', handleChange);
+      // quill.on('text-change', handleChange);
 
-      return () => {
-        quill.off('text-change', handleChange)
-      }
+      // return () => {
+      //   quill.off('text-change', handleChange)
+      // }
      
     })
     
