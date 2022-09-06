@@ -44,9 +44,18 @@ function Editor() {
     })
 
     useEffect(() => {
-      quill.on('text-change', (delta, oldData, source) => {
 
-      })
+      const handleChange = (delta, oldData, source) => {
+        if(source !== 'user') return;
+        socket.emit('send-changes', delta);
+      }
+
+      quill.on('text-change', handleChange);
+
+      return () => {
+        quill.off('text-change', handleChange)
+      }
+     
     })
     
   return (
